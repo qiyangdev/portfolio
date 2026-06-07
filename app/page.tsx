@@ -1,10 +1,11 @@
 import { BlogPosts } from 'app/components/posts'
+import { siteConfig } from 'app/site'
 
 export default function Page() {
   return (
     <section>
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        My Portfolio
+        {siteConfig.name}
       </h1>
       <p className="mb-4">
         {`I'm Qiyang, a software developer who builds web products and writes about
