@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { ArrowLeft } from "lucide-react";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { mdxComponents } from "@/app/components/mdx";
 import { baseUrl, siteConfig } from "@/app/site";
@@ -97,13 +95,6 @@ export default async function BlogPostPage({
       <article className="prose dark:prose-invert">
         <MDX components={mdxComponents} />
       </article>
-      <Link
-        href="/blog"
-        className="inline-flex items-center gap-1 mt-8 text-sm leading-none text-neutral-600 transition-all hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
-      >
-        <ArrowLeft className="size-[1em] shrink-0" strokeWidth={1.5} aria-hidden />
-        Back to blog
-      </Link>
     </section>
   );
 }

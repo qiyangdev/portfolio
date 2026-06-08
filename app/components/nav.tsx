@@ -2,8 +2,8 @@ import { BookOpen, House } from "lucide-react";
 import Link from "next/link";
 
 const navItems = [
-  { path: "/", name: "home", icon: House },
-  { path: "/blog", name: "blog", icon: BookOpen },
+  { path: "/", name: "Home", icon: House },
+  { path: "/blog", name: "Blog", icon: BookOpen },
 ] as const;
 
 const iconClassName = "size-[1em] shrink-0";
@@ -21,7 +21,7 @@ export function Navbar() {
               <Link
                 key={path}
                 href={path}
-                className="inline-flex items-center gap-1 text-sm leading-none transition-all hover:text-neutral-800 dark:hover:text-neutral-200 py-1 px-2 m-1"
+                className="inline-flex items-center gap-1 text-sm leading-none text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 py-1 px-2 m-1"
               >
                 <Icon
                   className={iconClassName}

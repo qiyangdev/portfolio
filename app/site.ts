@@ -6,6 +6,7 @@ export const siteConfig = {
   author: "Qiyang",
   links: {
     github: "https://github.com/qiyangdev/blog",
+    twitter: "https://x.com/qiyangdev",
   },
 };
 
