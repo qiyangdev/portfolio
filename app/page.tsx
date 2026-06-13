@@ -61,7 +61,7 @@ export default function Home() {
         <TechLink href={techLinks.nextjs} icon="/nextdotjs.svg">
           Next.js
         </TechLink>{" "}
-        — writing about the ideas, tools, and problems I keep coming back to.
+        — exploring the goals I pursue as a software engineer.
       </p>
     </section>
   );

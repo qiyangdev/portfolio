@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Qiyang",
   title: "Qiyang",
   description:
-    "Software developer building products with SwiftUI, Expo, and Next.js — writing about the ideas, tools, and problems I keep coming back to.",
+    "Software developer building products with SwiftUI, Expo, and Next.js — exploring the goals I pursue as a software engineer.",
   author: "Qiyang",
   links: {
     github: "https://github.com/qiyangdev",
