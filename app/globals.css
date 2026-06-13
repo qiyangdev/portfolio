@@ -13,6 +13,11 @@
   --font-mono: var(--font-geist-mono);
 }
 
+.font-home-serif {
+  font-family: var(--font-source-serif), var(--font-noto-serif-sc), ui-serif, Georgia,
+    "Times New Roman", serif;
+}
+
 html {
   min-width: 360px;
   background: var(--background);
