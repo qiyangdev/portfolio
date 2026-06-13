@@ -5,7 +5,7 @@ export const siteConfig = {
     "Software developer building products with SwiftUI, Expo, and Next.js — writing about the ideas, tools, and problems I keep coming back to.",
   author: "Qiyang",
   links: {
-    github: "https://github.com/qiyangdev/blog",
+    github: "https://github.com/qiyangdev",
     twitter: "https://x.com/qiyangdev",
   },
 };
