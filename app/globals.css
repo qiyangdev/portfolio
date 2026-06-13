@@ -18,6 +18,28 @@
     "Times New Roman", serif;
 }
 
+.home-hero {
+  --home-title-size: clamp(1.75rem, 1rem + 2.2vw, 3.5rem);
+  --home-bio-size: clamp(0.9375rem, 0.7rem + 0.9vw, 1.3125rem);
+  --home-avatar-size: clamp(3.5rem, 2rem + 2.8vw, 5rem);
+  --home-title-gap: clamp(1.25rem, 0.75rem + 1.2vw, 2rem);
+}
+
+.home-hero__title {
+  font-size: var(--home-title-size);
+  margin-bottom: var(--home-title-gap);
+}
+
+.home-hero__bio {
+  font-size: var(--home-bio-size);
+}
+
+.home-hero__avatar {
+  width: var(--home-avatar-size);
+  height: var(--home-avatar-size);
+  margin-bottom: clamp(0.75rem, 0.5rem + 0.6vw, 1.25rem);
+}
+
 html {
   min-width: 360px;
   background: var(--background);

@@ -8,13 +8,13 @@ import { getLocale, localeToHtmlLang } from "@/lib/locale";
 
 const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
-  weight: ["400", "600"],
+  weight: ["400", "600", "700"],
   variable: "--font-source-serif",
 });
 
 const notoSerifSC = Noto_Serif_SC({
   subsets: ["latin"],
-  weight: ["400", "600"],
+  weight: ["400", "600", "700"],
   variable: "--font-noto-serif-sc",
 });
 
@@ -51,25 +51,27 @@ export default async function Home() {
 
   return (
     <section
-      className={`${sourceSerif.variable} ${notoSerifSC.variable} relative z-10 font-home-serif text-center text-foreground`}
+      className={`${sourceSerif.variable} ${notoSerifSC.variable} home-hero relative z-10 font-home-serif text-center text-foreground`}
     >
       <Image
         src="/avatar.png"
         alt={messages.name}
-        width={72}
-        height={72}
-        className="mx-auto mb-4 rounded-full"
+        width={80}
+        height={80}
+        className="home-hero__avatar mx-auto rounded-full"
         priority
       />
-      <h1 className="mb-8 text-2xl font-semibold tracking-normal text-foreground">
+      <h1 className="home-hero__title font-bold tracking-tight text-foreground">
         {messages.name}
       </h1>
       <div
-        className={`mb-4 text-base text-foreground ${
+        className={`home-hero__bio mb-4 font-normal text-foreground ${
           locale === "zh" ? "leading-[1.85]" : "leading-normal"
         }`}
       >
-        {messages.bioIntro}
+        {messages.bioPrefix}
+        <span className="font-semibold">{messages.bioRole}</span>
+        {messages.bioMid}
         <TechLink href={techLinks.swiftui} icon="/swift.svg">
           SwiftUI
         </TechLink>

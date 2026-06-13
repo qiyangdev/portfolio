@@ -64,7 +64,7 @@ export function TechLink({ href, icon, children }: TechLinkProps) {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline whitespace-nowrap text-inherit underline underline-offset-2 decoration-current/35 transition-colors hover:decoration-current/60"
+        className="inline whitespace-nowrap font-semibold text-inherit underline underline-offset-2 decoration-current/35 transition-colors hover:decoration-current/60"
         onMouseEnter={handleEnter}
         onMouseLeave={handleLeave}
         onFocus={handleEnter}

@@ -3,7 +3,17 @@ import { headers } from "next/headers";
 export type Locale = "en" | "zh";
 
 export async function getLocale(): Promise<Locale> {
-  const acceptLanguage = (await headers()).get("accept-language") ?? "";
+  const headerStore = await headers();
+
+  if (process.env.NODE_ENV === "development") {
+    const override = headerStore.get("x-locale");
+
+    if (override === "en" || override === "zh") {
+      return override;
+    }
+  }
+
+  const acceptLanguage = headerStore.get("accept-language") ?? "";
 
   for (const part of acceptLanguage.split(",")) {
     const lang = part.trim().split(";")[0].toLowerCase();
