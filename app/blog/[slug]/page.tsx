@@ -86,13 +86,15 @@ export default async function BlogPostPage({
           }),
         }}
       />
-      <h1 className="title font-semibold text-2xl tracking-tighter">{title}</h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          {formatDate(date)}
-        </p>
+      <div className="text-center">
+        <h1 className="title font-semibold text-2xl tracking-tighter">{title}</h1>
+        <div className="flex justify-center items-center mt-2 mb-8 text-sm">
+          <p className="text-sm text-neutral-400">
+            {formatDate(date)}
+          </p>
+        </div>
       </div>
-      <article className="prose dark:prose-invert">
+      <article className="prose prose-invert text-left">
         <MDX components={mdxComponents} />
       </article>
     </section>

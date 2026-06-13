@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -10,17 +11,6 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-
-  html {
-    color-scheme: dark;
-  }
 }
 
 html {
@@ -101,25 +91,13 @@ body {
   font-size: inherit;
 }
 
-/* Shiki dual themes: variables are on elements, color must be applied via CSS */
 .shiki {
-  color: var(--shiki-light);
-  background-color: var(--shiki-light-bg);
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg);
 }
 
 .shiki span {
-  color: var(--shiki-light);
-}
-
-@media (prefers-color-scheme: dark) {
-  .shiki {
-    color: var(--shiki-dark);
-    background-color: var(--shiki-dark-bg);
-  }
-
-  .shiki span {
-    color: var(--shiki-dark);
-  }
+  color: var(--shiki-dark);
 }
 
 figure[data-rehype-pretty-code-figure] {

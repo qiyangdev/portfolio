@@ -2,7 +2,6 @@ import { Analytics } from "@vercel/analytics/next"
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Footer from "@/app/components/footer";
-import { Navbar } from "@/app/components/nav";
 import { baseUrl, siteConfig } from "@/app/site";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import "./globals.css";
@@ -60,9 +59,8 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col max-w-xl mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
-          <Navbar />
+      <body className="flex min-h-dvh flex-col max-w-xl mx-auto px-4 bg-background text-foreground">
+        <main className="flex flex-1 flex-col justify-center px-2 py-8 md:px-0">
           {children}
           <Footer />
           <Analytics />
