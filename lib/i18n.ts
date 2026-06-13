@@ -11,6 +11,11 @@ export type HomeMessages = {
   bioSuffix: string;
 };
 
+export type BlogMessages = {
+  title: string;
+  description: string;
+};
+
 const homeMessages: Record<Locale, HomeMessages> = {
   en: {
     name: "Qiyang",
@@ -36,6 +41,34 @@ const homeMessages: Record<Locale, HomeMessages> = {
   },
 };
 
+const blogMessages: Record<Locale, BlogMessages> = {
+  en: {
+    title: "Blog",
+    description:
+      "Writing by Qiyang on engineering, tools, and ideas.",
+  },
+  zh: {
+    title: "博客",
+    description: "启阳关于工程、工具与想法的文章。",
+  },
+};
+
 export function getHomeMessages(locale: Locale): HomeMessages {
   return homeMessages[locale];
+}
+
+export function getBlogMessages(locale: Locale): BlogMessages {
+  return blogMessages[locale];
+}
+
+export function formatBlogCopyright(
+  locale: Locale,
+  author: string,
+  year: number,
+): string {
+  if (locale === "zh") {
+    return `© ${year} ${author}。保留所有权利，转载请注明出处。`;
+  }
+
+  return `© ${year} ${author}. All rights reserved. Please cite the source when republishing.`;
 }

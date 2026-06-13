@@ -5,8 +5,9 @@ import { HomeShaderBackground } from "@/app/components/home-shader-background";
 
 export function HomeShaderGate() {
   const pathname = usePathname();
+  const showBackground = pathname === "/" || pathname.startsWith("/blog");
 
-  if (pathname !== "/") {
+  if (!showBackground) {
     return null;
   }
 

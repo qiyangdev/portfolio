@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Noto_Serif_SC, Source_Serif_4 } from "next/font/google";
+import Footer from "@/app/components/footer";
 import { TechLink } from "@/app/components/tech-link";
 import { baseUrl } from "@/app/site";
 import { getHomeMessages } from "@/lib/i18n";
@@ -50,9 +51,10 @@ export default async function Home() {
   const messages = getHomeMessages(locale);
 
   return (
-    <section
-      className={`${sourceSerif.variable} ${notoSerifSC.variable} home-hero relative z-10 font-home-serif text-center text-foreground`}
-    >
+    <div className="mx-auto flex w-full max-w-xl flex-1 flex-col justify-center text-center">
+      <section
+        className={`${sourceSerif.variable} ${notoSerifSC.variable} home-hero relative z-10 font-home-serif text-foreground`}
+      >
       <Image
         src="/avatar.png"
         alt={messages.name}
@@ -85,6 +87,8 @@ export default async function Home() {
         </TechLink>
         {messages.bioSuffix}
       </div>
-    </section>
+      </section>
+      <Footer />
+    </div>
   );
 }

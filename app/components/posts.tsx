@@ -1,25 +1,27 @@
 import Link from "next/link";
-import { formatDate, getSortedBlogPages } from "@/lib/source";
+import { getSortedBlogPages } from "@/lib/source";
+import { getLocale } from "@/lib/locale";
 
-export function BlogPosts() {
-  const posts = getSortedBlogPages();
+export async function BlogPosts() {
+  const locale = await getLocale();
+  const posts = getSortedBlogPages(locale);
 
   return (
-    <div>
+    <ul
+      className={`home-hero__bio mx-auto flex w-full max-w-2xl flex-col items-center gap-3 font-normal text-foreground ${
+        locale === "zh" ? "leading-[1.85]" : "leading-normal"
+      }`}
+    >
       {posts.map((post) => (
-        <Link
-          key={post.url}
-          className="flex flex-col space-y-1 mb-4"
-          href={post.url}
-        >
-          <p className="text-neutral-100 tracking-tight underline underline-offset-2 decoration-current/35">
+        <li key={post.url}>
+          <Link
+            className="font-semibold text-inherit underline underline-offset-2 decoration-current/35 transition-colors hover:decoration-current/60"
+            href={post.url}
+          >
             {post.data.title}
-          </p>
-          <p className="text-sm text-neutral-400">
-            {formatDate(String(post.data.date))}
-          </p>
-        </Link>
+          </Link>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }

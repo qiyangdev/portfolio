@@ -2,7 +2,7 @@ import { baseUrl, siteConfig } from "@/app/site";
 import { getSortedBlogPages } from "@/lib/source";
 
 export async function GET() {
-  const posts = getSortedBlogPages();
+  const posts = getSortedBlogPages("en");
 
   const itemsXml = posts
     .map(

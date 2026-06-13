@@ -1,7 +1,6 @@
 import { Analytics } from "@vercel/analytics/next"
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Footer from "@/app/components/footer";
 import { HomeShaderGate } from "@/app/components/home-shader-gate";
 import { baseUrl, siteConfig } from "@/app/site";
 import { getLocale, localeToHtmlLang } from "@/lib/locale";
@@ -64,11 +63,10 @@ export default async function RootLayout({
       lang={htmlLang}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-dvh flex-col max-w-xl mx-auto px-4 bg-transparent text-foreground">
+      <body className="flex min-h-dvh flex-col w-full bg-transparent px-4 text-foreground">
         <HomeShaderGate />
-        <main className="relative z-10 flex flex-1 flex-col justify-center px-2 py-8 md:px-0">
+        <main className="relative z-10 flex flex-1 flex-col px-2 py-8 md:px-0">
           {children}
-          <Footer />
           <Analytics />
           <SpeedInsights />
         </main>
