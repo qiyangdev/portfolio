@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Noto_Serif_SC, Source_Serif_4 } from "next/font/google";
 import Footer from "@/app/components/footer";
+import { HomeMotion, HomeMotionItem } from "@/app/components/home-motion";
 import { TechLink } from "@/app/components/tech-link";
 import { baseUrl } from "@/app/site";
 import { getHomeMessages } from "@/lib/i18n";
@@ -49,43 +50,51 @@ export default async function Home() {
 
   return (
     <div className="mx-auto flex w-full max-w-xl flex-1 flex-col justify-center text-center">
-      <section
+      <HomeMotion
         className={`${sourceSerif.variable} ${notoSerifSC.variable} home-hero relative z-10 font-home-serif text-foreground`}
       >
-      <Image
-        src="/avatar.png"
-        alt={messages.name}
-        width={80}
-        height={80}
-        className="home-hero__avatar mx-auto rounded-full"
-        priority
-      />
-      <h1 className="home-hero__title font-bold tracking-tight text-foreground">
-        {messages.name}
-      </h1>
-      <div
-        className={`home-hero__bio mb-4 font-normal text-foreground ${
-          locale === "zh" ? "leading-[1.85]" : "leading-normal"
-        }`}
-      >
-        {messages.bioPrefix}
-        <span className="font-semibold">{messages.bioRole}</span>
-        {messages.bioMid}
-        <TechLink href={techLinks.swiftui} icon="/swift.svg">
-          SwiftUI
-        </TechLink>
-        {messages.bioBetween1}
-        <TechLink href={techLinks.expo} icon="/expo.svg">
-          Expo
-        </TechLink>
-        {messages.bioBetween2}
-        <TechLink href={techLinks.nextjs} icon="/nextdotjs.svg">
-          Next.js
-        </TechLink>
-        {messages.bioSuffix}
-      </div>
-      </section>
-      <Footer />
+        <HomeMotionItem>
+          <Image
+            src="/avatar.png"
+            alt={messages.name}
+            width={80}
+            height={80}
+            className="home-hero__avatar mx-auto rounded-full"
+            priority
+          />
+        </HomeMotionItem>
+        <HomeMotionItem>
+          <h1 className="home-hero__title font-bold tracking-tight text-foreground">
+            {messages.name}
+          </h1>
+        </HomeMotionItem>
+        <HomeMotionItem>
+          <div
+            className={`home-hero__bio mb-4 font-normal text-foreground ${
+              locale === "zh" ? "leading-[1.85]" : "leading-normal"
+            }`}
+          >
+            {messages.bioPrefix}
+            <span className="font-semibold">{messages.bioRole}</span>
+            {messages.bioMid}
+            <TechLink href={techLinks.swiftui} icon="/swift.svg">
+              SwiftUI
+            </TechLink>
+            {messages.bioBetween1}
+            <TechLink href={techLinks.expo} icon="/expo.svg">
+              Expo
+            </TechLink>
+            {messages.bioBetween2}
+            <TechLink href={techLinks.nextjs} icon="/nextdotjs.svg">
+              Next.js
+            </TechLink>
+            {messages.bioSuffix}
+          </div>
+        </HomeMotionItem>
+        <HomeMotionItem>
+          <Footer />
+        </HomeMotionItem>
+      </HomeMotion>
     </div>
   );
 }
