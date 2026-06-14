@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { BlogPosts } from "@/app/components/posts";
 import { baseUrl } from "@/app/site";
 import { getBlogMessages } from "@/lib/i18n";
+import { getShareMetadata } from "@/lib/metadata";
 import { getLocale, localeToHtmlLang } from "@/lib/locale";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -12,16 +13,13 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: messages.title,
     description: messages.description,
-    openGraph: {
+    ...getShareMetadata({
       title: messages.title,
       description: messages.description,
-      locale: htmlLang === "zh-CN" ? "zh_CN" : "en_US",
       url: `${baseUrl}/blog`,
-    },
-    twitter: {
-      title: messages.title,
-      description: messages.description,
-    },
+      locale: htmlLang === "zh-CN" ? "zh_CN" : "en_US",
+      imageTitle: messages.title,
+    }),
   };
 }
 

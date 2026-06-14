@@ -4,6 +4,7 @@ import { mdxComponents } from "@/app/components/mdx";
 import { baseUrl, siteConfig } from "@/app/site";
 import { formatDate, getAllBlogSlugs, getBlogPage } from "@/lib/source";
 import { formatBlogCopyright } from "@/lib/i18n";
+import { getOgImageUrl, getShareMetadata } from "@/lib/metadata";
 import { getLocale } from "@/lib/locale";
 
 export function generateStaticParams() {
@@ -27,25 +28,18 @@ export async function generateMetadata({
 
   const title = String(page.data.title);
   const description = String(page.data.description);
-  const ogImage = `${baseUrl}/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,
     description,
-    openGraph: {
+    ...getShareMetadata({
       title,
       description,
+      url: `${baseUrl}${page.url}`,
       type: "article",
       publishedTime: String(page.data.date),
-      url: `${baseUrl}${page.url}`,
-      images: [{ url: ogImage }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [ogImage],
-    },
+      imageTitle: title,
+    }),
   };
 }
 
@@ -83,7 +77,7 @@ export default async function BlogPostPage({
             datePublished: date,
             dateModified: date,
             description,
-            image: `${baseUrl}/og?title=${encodeURIComponent(title)}`,
+            image: getOgImageUrl(title),
             url: `${baseUrl}${page.url}`,
             author: {
               "@type": "Person",

@@ -5,6 +5,7 @@ import Footer from "@/app/components/footer";
 import { TechLink } from "@/app/components/tech-link";
 import { baseUrl } from "@/app/site";
 import { getHomeMessages } from "@/lib/i18n";
+import { getShareMetadata } from "@/lib/metadata";
 import { getLocale, localeToHtmlLang } from "@/lib/locale";
 
 const sourceSerif = Source_Serif_4({
@@ -33,16 +34,12 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: messages.name,
     description: messages.description,
-    openGraph: {
+    ...getShareMetadata({
       title: messages.name,
       description: messages.description,
-      locale: htmlLang === "zh-CN" ? "zh_CN" : "en_US",
       url: baseUrl,
-    },
-    twitter: {
-      title: messages.name,
-      description: messages.description,
-    },
+      locale: htmlLang === "zh-CN" ? "zh_CN" : "en_US",
+    }),
   };
 }
 

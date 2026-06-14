@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { HomeShaderGate } from "@/app/components/home-shader-gate";
 import { baseUrl, siteConfig } from "@/app/site";
+import { getShareMetadata } from "@/lib/metadata";
 import { getLocale, localeToHtmlLang } from "@/lib/locale";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import "./globals.css";
@@ -24,19 +25,12 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  openGraph: {
+  ...getShareMetadata({
     title: siteConfig.title,
     description: siteConfig.description,
     url: baseUrl,
-    siteName: siteConfig.name,
     locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.title,
-    description: siteConfig.description,
-  },
+  }),
   robots: {
     index: true,
     follow: true,
