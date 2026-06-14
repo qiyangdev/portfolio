@@ -3,6 +3,7 @@ import {
   defineConfig,
   frontmatterSchema,
 } from "fumadocs-mdx/config";
+import { remarkJoinCjkLines } from "@/lib/remark-join-cjk-lines";
 import { z } from "zod";
 
 export const blog = defineCollections({
@@ -16,6 +17,7 @@ export const blog = defineCollections({
 
 export default defineConfig({
   mdxOptions: {
+    remarkPlugins: [remarkJoinCjkLines],
     rehypeCodeOptions: {
       themes: {
         light: "dracula-soft",
