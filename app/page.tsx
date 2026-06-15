@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { Noto_Serif_SC, Source_Serif_4 } from "next/font/google";
 import Footer from "@/app/components/footer";
 import { HomeMotion, HomeMotionItem } from "@/app/components/home-motion";
@@ -89,6 +90,14 @@ export default async function Home() {
               Next.js
             </TechLink>
             {messages.bioSuffix}
+            {messages.bioBlogBefore}
+            <Link
+              href="/blog"
+              className="font-semibold text-inherit underline underline-offset-2 decoration-current/35 transition-colors hover:decoration-current/60"
+            >
+              {messages.bioBlogLabel}
+            </Link>
+            {messages.bioBlogAfter}
           </div>
         </HomeMotionItem>
         <HomeMotionItem>
