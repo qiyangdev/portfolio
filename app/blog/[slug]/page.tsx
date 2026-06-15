@@ -4,7 +4,7 @@ import { mdxComponents } from "@/app/components/mdx";
 import { BlogPostContent } from "@/app/components/blog-post-content";
 import { baseUrl, siteConfig } from "@/app/site";
 import { formatDate, getAllBlogSlugs, getBlogPage } from "@/lib/source";
-import { formatBlogCopyright } from "@/lib/i18n";
+import { formatBlogCopyright, getBlogMessages } from "@/lib/i18n";
 import { getOgImageUrl, getShareMetadata } from "@/lib/metadata";
 import { getLocale } from "@/lib/locale";
 
@@ -56,6 +56,7 @@ export default async function BlogPostPage({
   if (!page) {
     notFound();
   }
+  const blogMessages = getBlogMessages(locale);
   const MDX = page.data.body;
   const title = String(page.data.title);
   const description = String(page.data.description);
@@ -91,6 +92,8 @@ export default async function BlogPostPage({
         title={title}
         date={formatDate(date, locale)}
         copyright={formatBlogCopyright(locale, author, copyrightYear)}
+        homeLabel={blogMessages.footerHomeLabel}
+        blogLabel={blogMessages.footerBlogLabel}
         locale={locale}
       >
         <MDX components={mdxComponents} />

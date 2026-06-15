@@ -35,6 +35,10 @@ export default async function BlogPage() {
   return (
     <BlogPageContent
       title={messages.title}
+      introPrefix={messages.introPrefix}
+      introHomeBefore={messages.introHomeBefore}
+      introHomeLabel={messages.introHomeLabel}
+      introHomeAfter={messages.introHomeAfter}
       posts={posts}
       locale={locale}
     />

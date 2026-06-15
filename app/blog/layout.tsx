@@ -19,7 +19,7 @@ export default function BlogLayout({
 }>) {
   return (
     <div
-      className={`${sourceSerif.variable} ${notoSerifSC.variable} mx-auto flex w-full max-w-5xl flex-1 flex-col justify-center px-2 py-4 font-home-serif text-foreground md:px-0`}
+      className={`${sourceSerif.variable} ${notoSerifSC.variable} site-content px-2 py-4 font-home-serif text-foreground md:px-0`}
     >
       {children}
     </div>

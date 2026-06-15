@@ -50,7 +50,7 @@ export default async function Home() {
   const messages = getHomeMessages(locale);
 
   return (
-    <div className="mx-auto flex w-full max-w-xl flex-1 flex-col justify-center text-center">
+    <div className="site-content text-center">
       <HomeMotion
         className={`${sourceSerif.variable} ${notoSerifSC.variable} home-hero relative z-10 font-home-serif text-foreground`}
       >
